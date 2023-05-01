@@ -3,14 +3,15 @@ on:
   push:
     branches:
       - main
-env:
-  SERVER_ADRESS: http://localhost:1313/
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
-  module1_task0:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
       - name: Build website
-        run: hugo -d /dist
+        run: cd module1_task0 && hugo -D -d /dist
