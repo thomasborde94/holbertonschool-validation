@@ -3,12 +3,16 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   module1_task0:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: cd in to correct directory
-        run: module1_task0
+        run: |
+          cd module1_task0
+          make help
