@@ -1,0 +1,14 @@
+name: module1_task0
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  module1_task0:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: cd in to correct directory
+        run: module1_task0
