@@ -1,30 +1,92 @@
-# Testing in the Software Development Methodology
+<h1 align="center"> Module 1: Introduction to DevOps: Automate Everything to Focus on What Really Matters
 
-## Build an Application using Make
+# Learning Objectives
+This project aims at showing use cases where a DevOps mindset is bringing value to a software project by automating it, which decreases the amount of manual work and increases the development speed. It focuses on why automation is useful and helps speeding a development lifecycle.
 
-### Prerequisites
-* Golang in v1.15.+
-* NPM v7+ with NodeJS v14.*
-* Python3 with pip module
-* golangci-lint
+After this project, you should be able to:
 
-### Lifecycle
-The life-cycle of this project is the following command:
+- Understand the value of automating tedious tasks
+- Define a development lifecycle
+- Automate shell-like tasks with Make, and/or shell script
+- Be aware of tools dependencies and the value of reproducing environment
+- Build static HTML website from Markdown code using Go-Hugo
 
-* ```build```  compile the source code of the application to a binary named ```awesome-api``` (the name ```awesome-api``` comes from the command ```go mod init github.com/<your github handle>/awesome-api```) with the command go build. The first build may takes some times. Build run only if lint is not failed.
+## Prerequisites
 
-* ```run```: Run the application in background by executing the binary ```awesome-api```, and write logs into a file named ```awesome-api.log```
+The following elements are required:
 
-* ```stop```: Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application.
+### Concepts
 
-* ```clean```: Stop the application. Delete the binary ```awesome-api``` and the log file ```awesome-api.log```, ```coverage-untis.out``` and ```coverage-integrations.out```
+You should have a basic knowledge of the following concepts:
 
-* ```test```: Test to ensure that it behaves as expected. 
+- Shell terminal basics, using command lines:
 
-* ```lint```: Test lint in the files
+	- Navigating in a Unix file-system
+	- Understanding how stdin/stdout redirection and piping
+	- Showing and searching the content of a text files
+	- Defining and using Environment Variables
+	- Adding command lines to your terminal using the apt-get package manager and/or with the PATH variable
+	- Writing and executing a shell script
 
-* ```unit-tests```: Run files with the _test.go suffix 
+- Git with the command line (and also a graphical interface)
 
-* ```integration-tests```: Run files with the _integration_test.go suffix
+	- Retrieving or creating a repository
+	- Manipulating changes locally with Git’s 3 steps process (workspace, staging, history)
+	- Distributing changes history with remotes repositories
 
-* ```help```: print a list of all the goals
+- Make/Makefile usage:
+
+	- Executing tasks through make targets
+	- Default target and PHONY target
+	- Makefile’s variables and macro syntax
+
+### Tooling
+
+This project needs the following tools / services:
+
+- An HTML5-compliant web browser (Firefox, Chrome, Opera, Safari, Edge, etc.)
+- A free account on [GitHub](https://github.com/), referenced as `GitHub Handle`
+- A shell terminal with bash, zsh or ksh, including the standard Unix toolset (ls, cd, etc.)
+- [GNU](https://www.gnu.org/software/make/) Make in version 3.81+
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line) (command line) in version 2+
+- [Go Hugo](https://gohugo.io/) v0.84+
+- [markdownlint-cli](https://intranet.hbtn.io/rltoken/hplwMW8M8BKVQyhDso0pOw) v0.26.0
+- [markdown-link-check](https://intranet.hbtn.io/rltoken/BRJGBHXvkAUKt50KrFOm0A) v3.8.6
+- [Holberton's W3C Validator](https://intranet.hbtn.io/rltoken/ll8gJ8CPoI9tfn1OTDE8rA)
+
+
+<h1 align="center"> How to use the make file:
+
+## Lifecycle
+
+In the DevOps methodology, the development lifecycle is generally staying the same. Use the following steps :
+
+To execute the Makefile use the following syntax:
+ ```make <command>```
+
+4 command are availaible :
+ `make help`:
+    - show all command description
+
+ `build`:
+    - Builds a new version of the website to folder `/dist/` 
+
+ `clean`:
+    - Removes the contents the folder  `/dist/`
+
+ `post`:
+    - Creates a new post in the contents/post folder with POST_TITLE and POST_NAME set from the ENV variables.
+
+ `check`:
+	- Lint of the Markdown source files using command line AND analysis of the links with command line. If one test fails, the command failed.
+ 
+ `validate`:
+	- validate the file ./dist/index.html by using command line. But non-blocking quality indicator
+
+
+# Story
+Congratulations!
+
+It’s your first day at “Awesome Inc.” as a software engineer. This company is currently experiencing fast growth and hired you to work on their web services.
+
+Your predecessor left to travel the world, and the expectations are high on your ability to help "Awesome Inc.” to grow a culture of collaboration with a technical mindset, while managing their existing web services. That’s exactly what DevOps is about!
