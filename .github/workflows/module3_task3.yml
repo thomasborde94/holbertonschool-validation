@@ -9,9 +9,9 @@ on:  # yamllint disable-line rule:truthy
     - cron: '0 0 * * *'
 
 jobs:
-  permissions:
-    contents: write
   build:
+    permissions:
+      contents: write
 
     runs-on: ubuntu-22.04
 
