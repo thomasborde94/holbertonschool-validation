@@ -9,6 +9,8 @@ on:  # yamllint disable-line rule:truthy
     - cron: '0 0 * * *'
 
 jobs:
+  permissions:
+    contents: write
   build:
 
     runs-on: ubuntu-22.04
@@ -34,8 +36,6 @@ jobs:
       - name: Release
         env:
           TOKEN: ${{ secrets.TOKEN }}
-        permissions:
-          contents: write
         uses: softprops/action-gh-release@v1
         with:
           tag_name: 1.0.0
