@@ -25,5 +25,5 @@ jobs:
 
       - name: "archive build"
         with:
-	  name: "upload package"
-	  path: module3_task2/awesome-website.zip
+          name: "upload package"
+          path: module3_task2/awesome-website.zip
