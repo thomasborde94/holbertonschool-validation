@@ -31,16 +31,17 @@ jobs:
           make package
           make clean
 
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: 1.0.0
-          files: |
-            module3_task3/awesome-website.zip
-            module3_task3/DEPLOY.md
-
       - name: "archive build"
         uses: actions/upload-artifact@v3
         with:
           name: "upload package"
           path: module3_task3/awesome-website.zip
+
+      - name: "Release task 3"
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          body_path: module3_task3/DEPLOY.md
+          files: |
+            module3_task3/DEPLOY.md
+            module3_task3/awesome-website.zip
