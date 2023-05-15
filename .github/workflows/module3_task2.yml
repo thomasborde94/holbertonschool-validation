@@ -24,7 +24,12 @@ jobs:
         run: cd module3_task2 && make build
 
       - name: "Testing"
-        run: make test && make clean
+        run: |
+          make validate
+          make integration-tests
+          make unit-tests
+          make package
+          make clean
 
       - name: "archive build"
         uses: actions/upload-artifact@v3
