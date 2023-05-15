@@ -23,6 +23,9 @@ jobs:
       - name: "Run make build"  # Execute the command make build
         run: cd module3_task1 && make build
 
+      - name: "Testing"
+        run: make test && make clean
+
       - name: "archive build"
         uses: actions/upload-artifact@v3
         with:
