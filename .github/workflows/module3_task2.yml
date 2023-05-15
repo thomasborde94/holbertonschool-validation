@@ -24,6 +24,7 @@ jobs:
         run: cd module3_task1 && make build
 
       - name: "archive build"
+        uses: actions/upload-artifact@v3
         with:
           name: "upload package"
           path: module3_task2/awesome-website.zip
